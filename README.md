@@ -4,6 +4,7 @@ This repository has components to implement an integration between Marketing Clo
 
 While this is not a detail step by step instructin on how to implement the full solution, it should give you enough information to implement the same or a similar solution.
 
+![Solution Diagram](images/solution.png)
 
 **PART I - Configuring ENS **
 
