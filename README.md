@@ -1,6 +1,6 @@
 **Introduction**
 
-This repository has components to implement an integration between Marketing Cloud Engagement with the Event Notification Service and Agentforce and is based on the presentation I did at [Buckeye Dreamin 2025](presentation/Buckeye Dreamin - Integrating WhatsApp with Agentforce.pdf).
+This repository has components to implement an integration between Marketing Cloud Engagement with the Event Notification Service and Agentforce and is based on the presentation I did at [Buckeye Dreamin 2025](https://github.com/psapir/agentforce-whatsapp-example/blob/aa5030b0e8e5e95a9c39c4e5f90de69a1e3dc468/presentation/Buckeye%20Dreamin%20-%20Integrating%20WhatsApp%20with%20Agentforce.pdf).
 
 While this is not a detail step by step instructin on how to implement the full solution, it should give you enough information to implement the same or a similar solution.
 
