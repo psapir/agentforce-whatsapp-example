@@ -30,14 +30,14 @@ Fields:
 * Field Type: Text (150)
 * Required: Yes
 
-### *Step 2: Creating the Callback CloudPage*
+#### *Step 2: Creating the Callback CloudPage*
 Our second step will be setting up our Cloud Page that will receive the events from the ENS. Initially we are going to set up this Cloud Page to receive and store the verification code. 
 
 Create a code resource Cloud Page and put the code located in sfmce/ens.verification.js. 
 
 Copy the URL of this Cloud Page.
 
-### *Step 3: Create and Verify the Callback*
+#### *Step 3: Create and Verify the Callback*
 Go to: Setup → Feature Settings → URL Callbacks → click on Register New. 
 
 Complete the details of your callback with the CloudPage URL you just created.
@@ -47,7 +47,7 @@ After your Callback is created, click on Verify. Open a new tab and go check you
 Copy and paste this verification code in the modal from the setup screen and you should be all set to start receiving events!
 
 ### *Step 4: Modify the Callback CloudPage to Process Events from WhatsApp*
-Go to your cloud page and modify it with the code from sfmce/whatsapp-ens-event.js which contains logic to receive an inbound message from WhatsApp and store it in a custom object in CRM using AMPScript (remember this will only work if you have setup the <a href="https://help.salesforce.com/s/articleView?language=en_US&id=sf.mc_co_marketing_cloud_connect.htm" target="_blank">integration between SFMCE and SFDC</a>).
+Go to your cloud page and modify it with the code from sfmce/whatsapp-ens-event.js which contains logic to receive an inbound message from WhatsApp and store it in a custom object in CRM using AMPScript (remember this will only work if you have setup the [integration between SFMCE and SFDC](https://help.salesforce.com/s/articleView?language=en_US&id=sf.mc_co_marketing_cloud_connect.htm){:target="_blank"}.
 
 ### *Step 5: Create a Subscription*
 Go to: Setup → Feature Settings → Subscriptions → click on Subscribe New. 
