@@ -46,10 +46,10 @@ After your Callback is created, click on Verify. Open a new tab and go check you
 
 Copy and paste this verification code in the modal from the setup screen and you should be all set to start receiving events!
 
-### *Step 4: Modify the Callback CloudPage to Process Events from WhatsApp*
-Go to your cloud page and modify it with the code from sfmce/whatsapp-ens-event.js which contains logic to receive an inbound message from WhatsApp and store it in a custom object in CRM using AMPScript (remember this will only work if you have setup the [integration between SFMCE and SFDC](https://help.salesforce.com/s/articleView?language=en_US&id=sf.mc_co_marketing_cloud_connect.htm){:target="_blank"}.
+#### *Step 4: Modify the Callback CloudPage to Process Events from WhatsApp*
+Go to your cloud page and modify it with the code from sfmce/whatsapp-ens-event.js which contains logic to receive an inbound message from WhatsApp and store it in a custom object in CRM using AMPScript (remember this will only work if you have setup the [integration between SFMCE and SFDC](https://help.salesforce.com/s/articleView?language=en_US&id=sf.mc_co_marketing_cloud_connect.htm)).
 
-### *Step 5: Create a Subscription*
+#### *Step 5: Create a Subscription*
 Go to: Setup → Feature Settings → Subscriptions → click on Subscribe New. 
 
 Select the Callback you created on step 3 and choose the EngagementEvents.OttMobileOriginated event.
@@ -58,15 +58,15 @@ Click on Subscribe.
 
 **PART II - Configuring CRM & Agentforce**
 
-This second part assumes you already have configured Agentforce in your org, if you need help getting started check out <a href="https://developer.salesforce.com/agentforce-workshop/getting-started/guided-workshop-setup" target="_blank">integration between SFMCE and SFDC</a>.
+This second part assumes you already have configured Agentforce in your org, if you need help getting started check out [this guide](https://developer.salesforce.com/agentforce-workshop/getting-started/guided-workshop-setup).
 
-### *Step 1 - Create The WhatsAppConversation Custom Object*
+#### *Step 1 - Create The WhatsAppConversation Custom Object*
 
 Create a custom object called WhatsAppConversation that will have two fields: MobileNumber (Text) and Body (Long Text Area). 
 
 This object will get populated by our Marketing Cloud Engagement Cloud Page.
 
-### *Step 2 - Create Template Triggered Prompt Flows*
+#### *Step 2 - Create Template Triggered Prompt Flows*
 
 For this scenario, we will need two Tempate Triggered Prompt Flows that will populate data into the Prompt Template. 
 
@@ -82,13 +82,14 @@ And this is how the Get All Books flow looks like:
 
 Note that both flows have an action to add the collection back to the prompt. We will create the prompt in the next step!
 
-### *Step 3 - Create the prompt*
+#### *Step 3 - Create the prompt*
 
 Now we are going to create the prompt in prompt builder. For this you will go to Setup, search for Prompt Builder and create a new Flex Prompt Template. 
 
 The Source object for this prompt template is going to be our WhatsAppConversation Custom object created in step 1.
 
 Your Prompt will look like the following:
+
     You’re a book advisor at BooksForYou.com the number one online community for book readers.  
     At BooksForYou.com, people can connect their local library accounts and check out books to read online. 
     You should help people by providing recommendations based on their past book rentals, matching by Genre.
@@ -111,7 +112,7 @@ Now save and activate the prompt template.
 
 In this last part, we are going to create a flow and an Apex Class that will call the SFMCE Rest API to send the response of the prompt back to the user.
 
-### *Step 1 - Obtain SFMCE Credentials*
+#### *Step 1 - Obtain SFMCE Credentials*
 
 Login to SFMCE, navigate to Setup and search for Installed Packages.
 
@@ -121,9 +122,9 @@ For the permissions, you just need the OTT permision to send.
 
 Copy the Client ID, Client Secret, the API domain and the SFMCE account ID, you will need this for the next step.
 
-Check out <a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/install-packages.html" target="_blank">this resource</a> if you need more information about creating installed packages.
+Check out [this resource](https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/install-packages.html) if you need more information about creating installed packages.
 
-### *Step 2 - Create the Apex Class*
+#### *Step 2 - Create the Apex Class*
 
 Create a new Apex Class called WhatsAppSFMCEService and copy the code from sfdc/WhatsAppSFMCEServiceTest.cls in this repo. 
 
@@ -131,14 +132,14 @@ Make sure you modify the class to include the details from your installed packag
 
 If you need to create a test class, I also put one on this repo.
 
-### *Final Step - The flow that brings it all together*
+#### *Final Step - The flow that brings it all together*
 
 The last step of our solution is to create a Flow that will trigger when a new WhatsAppConversation record is created, this flow will call our Prompt Template and then call our Apex Class with the mobile number and the Prompt Template response as a parameter:
 
 ![Agentforce WhatsApp Conversation Flow](images/agentforce-flow.png)
 
-### Test your solution and modify it to your liking!
+#### Test your solution and modify it to your liking!
 
-I hope this guide will help you understand how to integrate Agentforce with WhatsApp and other services using Prompt Builder, if you have any questions or feedback don't hesitate to contact me via <a href="https://www.linkedin.com/in/patosapir" target="_blank">LinkedIn</a>.
+I hope this guide will help you understand how to integrate Agentforce with WhatsApp and other services using Prompt Builder, if you have any questions or feedback don't hesitate to contact me via [LinkedIn](https://www.linkedin.com/in/patosapir).
 
 Thanks!
